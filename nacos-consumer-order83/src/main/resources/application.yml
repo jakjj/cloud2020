@@ -1,0 +1,16 @@
+
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-consumer-order
+  profiles: order83
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.111:8848
+
+#消费者要访问的服务名称
+service-url:
+  nacos-user-service: http://nacos-payment-provider/

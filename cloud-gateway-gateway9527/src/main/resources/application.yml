@@ -1,0 +1,32 @@
+
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #从配置中心自动创建路由，根据服务名
+      routes:
+        #路由Id，唯一即可
+        - id: payment_routh
+          #匹配后服务路径
+          #uri: http://localhost:8001
+          uri: lb://cloud-provider-payment
+          #断言，匹配个事
+          predicates:
+            - Path=/payment/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      #,http://DESKTOP-ILMEDR9:7002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: gateway9527
+    prefer-ip-address: true

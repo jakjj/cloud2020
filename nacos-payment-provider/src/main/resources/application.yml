@@ -1,0 +1,39 @@
+
+---
+server:
+  port: 9001
+
+spring:
+  profiles: pay9001
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.111:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+---
+server:
+  port: 9002
+
+spring:
+  profiles: pay9002
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.111:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

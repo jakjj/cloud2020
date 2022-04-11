@@ -1,0 +1,68 @@
+
+---
+server:
+  port: 8001
+
+spring:
+  profiles: pay8001
+  application:
+    name: cloud-provider-payment
+#  cloud:
+#    zookeeper:
+#      connect-string: 192.168.56.111:2181
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.111:3306/db_cloud?useUnicode=true&characterEncoding=utf-8&useSSl=false
+    username: wz
+    password: 123456
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: org.weizhen.springcloud.entities
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      #,http://DESKTOP-ILMEDR9:7002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+
+
+---
+server:
+  port: 8002
+
+spring:
+  profiles: pay8002
+  application:
+    name: cloud-provider-payment
+#  cloud:
+#    zookeeper:
+#      connect-string: 192.168.56.111:2181
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.111:3306/db_cloud?useUnicode=true&characterEncoding=utf-8&useSSl=false
+    username: wz
+    password: 123456
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: org.weizhen.springcloud.entities
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: payment8002
+    prefer-ip-address: true

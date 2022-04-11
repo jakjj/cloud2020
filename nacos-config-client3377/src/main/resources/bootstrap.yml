@@ -1,0 +1,16 @@
+
+
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-cofig-client
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.111:8848
+      config:
+        server-addr: 192.168.56.111:8848
+        file-extension: yaml #指定配置文件格式
