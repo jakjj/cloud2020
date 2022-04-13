@@ -15,7 +15,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.56.111:3306/db_cloud?useUnicode=true&characterEncoding=utf-8&useSSl=false
-    username: wz
+    username: root
     password: 123456
 
 mybatis:

@@ -1,0 +1,45 @@
+
+---
+server:
+  port: 2002
+
+spring:
+  profiles:
+    active: seata-storage2002
+  application:
+    name: seata-storage-server
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: storage-server-group
+
+    nacos:
+      discovery:
+        server-addr: 192.168.56.111:8848
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.111:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&useSSl=false
+    username: root
+    password: 123456
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: org.weizhen.springcloud.entities
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+feign:
+  hystrix:
+    enabled: false
+
+
+logging:
+  level:
+    io:
+      seata: info

@@ -18,7 +18,7 @@ spring:
           uri: lb://cloud-provider-payment
           #断言，匹配个事
           predicates:
-            - Path=/payment/**
+            - Path= /payment/**
 
 eureka:
   client:
